@@ -15,15 +15,12 @@ class Httpfs2 < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make"
-    system "make"
+    system "make httpfs2.1"
     bin.install "httpfs2"
     bin.install "httpfs2-mt"
     bin.install "httpfs2-ssl"
     bin.install "httpfs2-ssl-mt"
-    man1.install "httpfs2.1"
-    man1.install "httpfs2-mt.1"
-    man1.install "httpfs2-ssl.1"
-    man1.install "httpfs2-ssl-mt.1"
+    man1.install Dir["*.1"]
   end
 
   test do
