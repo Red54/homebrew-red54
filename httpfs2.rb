@@ -13,6 +13,7 @@ class Httpfs2 < Formula
   depends_on :osxfuse
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make"
     system "make"
     bin.install "httpfs2"
