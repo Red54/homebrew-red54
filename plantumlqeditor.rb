@@ -3,7 +3,11 @@ class Plantumlqeditor < Formula
   homepage "https://github.com/jalbersol/plantumlqeditor"
   url "https://github.com/jalbersol/plantumlqeditor/archive/2.0.tar.gz"
   sha256 "fb8225ac0de0a21f278d7e8a10c9f14d4e5fad73f7abd3c2e6518747f3ecf296"
-  patch :DATA
+  head "https://github.com/Red54/plantumlqeditor.git"
+
+  stable do
+    patch :DATA
+  end
 
   depends_on "qt5"
   depends_on "plantuml"
@@ -11,7 +15,11 @@ class Plantumlqeditor < Formula
   def install
     system "qmake"
     system "make"
-    prefix.install "plantumlqeditor.app"
+    if build.stable?
+      prefix.install "plantumlqeditor.app"
+    else
+      prefix.install "release/plantumlqeditor.app"
+    end
   end
 
   test do
