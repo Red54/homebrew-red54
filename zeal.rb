@@ -3,6 +3,10 @@ class Zeal < Formula
   homepage "https://zealdocs.org/"
   url "https://github.com/zealdocs/zeal/archive/v0.2.1.tar.gz"
   sha256 "994c5fad079cb34952fc05b0663920118489ed7f00f8e5a5887ff2e2bd05861d"
+  patch do
+    url "https://github.com/zealdocs/zeal/commit/b26d655a7ab2c1ba4fc6212b8a1e019e98e1398b.patch"
+    sha256 "c8a95f5de7ebf997031ce09fc8cfd33631e37f27f0824b3a62225136a2c318b6"
+  end
   patch :DATA
 
   depends_on "qt5"
